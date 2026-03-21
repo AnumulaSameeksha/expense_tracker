@@ -1,38 +1,176 @@
-.App {
+/* ================= ROOT COLORS ================= */
+:root {
+  --primary: #4CAF50;
+  --primary-dark: #2e7d32;
+  --danger: #ff4d4d;
+  --danger-dark: #c62828;
+  --bg: #eef2f7;
+  --card: #ffffff;
+  --text: #333;
+}
+
+/* ================= BODY ================= */
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(to right, #dfe9f3, #eef2f7);
+  color: var(--text);
+}
+
+/* ================= LAYOUT ================= */
+.dashboard {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 40px;
+}
+
+/* ================= PANELS ================= */
+.container,
+.right-panel {
+  width: 380px;
+  background: var(--card);
+  padding: 25px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* ================= TITLES ================= */
+h1 {
+  margin-bottom: 15px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.section-title {
+  margin-top: 20px;
+  font-size: 18px;
+  color: #555;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* ================= INPUTS ================= */
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  margin: 8px 0;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  transition: 0.3s;
+}
+
+input:focus,
+select:focus {
+  border-color: var(--primary);
+}
+
+/* ================= BUTTONS ================= */
+button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.03);
+  opacity: 0.95;
+}
+
+/* Delete button */
+.delete-btn {
+  background: linear-gradient(135deg, var(--danger), var(--danger-dark));
+  margin-top: 8px;
+}
+
+/* ================= SUMMARY ================= */
+.summary {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.box {
+  background: #f3f3f3;
+  padding: 10px;
+  border-radius: 10px;
+  width: 48%;
+  font-weight: bold;
+}
+
+/* ================= TOTAL ================= */
+.total {
+  margin-top: 15px;
+  font-size: 22px;
+  color: var(--primary);
+  font-weight: bold;
+}
+
+/* ================= CARDS ================= */
+.card {
+  background: #f9f9f9;
+  padding: 12px;
+  margin-top: 12px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+}
+
+/* ================= CHART ================= */
+.right-panel canvas {
+  max-width: 300px !important;
+  max-height: 300px !important;
+  margin: auto;
+}
+
+/* ================= EMPTY STATE ================= */
+.empty {
+  opacity: 0.6;
+  margin-top: 10px;
+}
+
+/* ================= DARK MODE ================= */
+.dark {
+  background: #121212;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.dark .container,
+.dark .right-panel {
+  background: #1e1e1e;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.dark input,
+.dark select {
+  background: #2c2c2c;
+  color: white;
+  border: 1px solid #555;
+}
+
+.dark .box {
+  background: #2c2c2c;
+}
+
+.dark .card {
+  background: #2c2c2c;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 900px) {
+  .dashboard {
+    flex-direction: column;
+    align-items: center;
   }
 }
